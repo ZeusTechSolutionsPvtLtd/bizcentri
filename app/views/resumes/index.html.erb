@@ -1,0 +1,28 @@
+<center><h3>Welcome to BizCentrik Source 2 Target mapping wizard</h3></center>
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>File List</th>
+      <td><%= link_to "Add File", new_resume_path, class: "btn btn-primary" %></td>
+       </tr>
+  </thead>
+  <tbody>
+    <% @resumes.each do |resume| %>
+      <tr>
+        <td><%= resume.name %></td>
+        <td><%= resume.attachment_url %>&nbsp; &nbsp;<%= link_to "Show File", resume.attachment_url%></td>
+         <td><%= link_to 'Edit', edit_resume_path(resume), class: "btn btn-danger" %></td>
+        <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<center><h3>Welcome to BizCentrik Source 2 Target mapping wizard</h3></center>
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>File List</th>
+      <td><%= link_to "Update File", @update_resume_path, class: "btn btn-primary" %></td>
+       </tr>
+  </thead>
+  <tbody>
+     <tr>
+        <td><%= @resume.name %></td>
+        <td><%= @resume.attachment_url %>&nbsp; &nbsp;<%= link_to "Show File", @resume.attachment_url%></td>
+         <td><%= link_to 'Edit', @resume_path, class: "btn btn-danger" %></td>
+        </tr>
+   </tbody>
+</table>
+
+<%= link_to 'Back', resume_path %>
